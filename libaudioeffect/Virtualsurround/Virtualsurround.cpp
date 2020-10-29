@@ -363,8 +363,8 @@ int Virtualsurround_process(effect_handle_t self, audio_buffer_t *inBuffer, audi
     if (pContext->state != VIRTUALSURROUND_STATE_ACTIVE) {
         return -ENODATA;
     }
-    int16_t *in  = (int16_t *)inBuffer->raw;
-    int16_t *out = (int16_t *)outBuffer->raw;
+    LVM_FLOAT *in  = (LVM_FLOAT *)inBuffer->raw;
+    LVM_FLOAT *out = (LVM_FLOAT *)outBuffer->raw;
     Virtualsurrounddata *data = &pContext->gVirtualsurrounddata;
     if (!data->tbcfg.enable) {
         for (size_t i = 0; i < inBuffer->frameCount; i++) {
